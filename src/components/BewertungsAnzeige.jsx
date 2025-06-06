@@ -11,7 +11,7 @@ const BewertungsAnzeige = ({ bewertung }) => {
     F: 'Formale Richtigkeit'
   };
 
-  const maxPunkte = { K: 2, T: 5, L: 5, F: 5 };
+  const maxPunkte = { K: 2, T: 3, L: 5, F: 5 };
 
   const getScoreColor = (score, max) => {
     const percentage = (score / max) * 100;
@@ -21,7 +21,7 @@ const BewertungsAnzeige = ({ bewertung }) => {
   };
 
   const getOverallGrade = () => {
-    const percentage = (punkte.gesamt / 17) * 100;
+    const percentage = (punkte.gesamt / 15) * 100;
     if (percentage >= 80) return { grade: 'Sehr gut', color: '#27ae60' };
     if (percentage >= 70) return { grade: 'Gut', color: '#2ecc71' };
     if (percentage >= 60) return { grade: 'Befriedigend', color: '#f39c12' };
@@ -37,7 +37,7 @@ const BewertungsAnzeige = ({ bewertung }) => {
       
       <div className="gesamtbewertung">
         <div className="gesamt-punkte">
-          <span className="punkte-zahl">{punkte.gesamt}/17</span>
+          <span className="punkte-zahl">{punkte.gesamt}/15</span>
           <span 
             className="note" 
             style={{ color: overallGrade.color }}
